@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Delmer_Offer" title="Offer" module="Delmer_Offer" sortOrder="20" dependsOnModule="Delmer_Offer" resource="Delmer_Offer::offers"/>
+        <add id="Delmer_Offer::offer" title="Offers" translate="title" module="Delmer_Offer" action="delmeroffer/offer" parent="Delmer_Offer" sortOrder="1" dependsOnModule="Delmer_Offer" resource="Delmer_Offer::offer_menu"/>
+    </menu>
+</config>

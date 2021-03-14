@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">delmer_offer_form.delmer_offer_listing_data_source</item>
+            <item name="deps" xsi:type="string">delmer_offer_form.delmer_offer_listing_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Offer</item>
+        <item name="layout" xsi:type="array">
+            <item name="type" xsi:type="string">tabs</item>
+        </item>
+
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Delmer\Offer\Block\Adminhtml\Offer\Edit\BackButton</item>
+            <item name="delete" xsi:type="string">Delmer\Offer\Block\Adminhtml\Offer\Edit\DeleteButton</item>
+            <item name="reset" xsi:type="string">Delmer\Offer\Block\Adminhtml\Offer\Edit\ResetButton</item>
+            <item name="save" xsi:type="string">Delmer\Offer\Block\Adminhtml\Offer\Edit\SaveButton</item>
+        </item>
+    </argument>
+
+    <dataSource name="delmer_offer_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Delmer\Offer\Model\Offer\DataProvider</argument>
+            <argument name="name" xsi:type="string">delmer_offer_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+                <item name="submit_url" xsi:type="url" path="delmeroffer/offer/save"/>
+            </item>
+        </argument>
+    </dataSource>
+
+    <fieldset name="offers">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Offers</item>
+            </item>
+        </argument>
+
+        <field name="id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">offers</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="label">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Label</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">offers</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="content">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Content</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">offers</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="redirect_link">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Redirect Link</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">offers</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="button_text">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Button Text</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">offers</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="categories">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Catalog\Ui\Component\Product\Form\Categories\Options</item>
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Categories</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Catalog/js/components/new-category</item>
+                    <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                    <item name="dataScope" xsi:type="string">categories</item>
+                    <item name="filterOptions" xsi:type="boolean">false</item>
+                    <item name="showCheckbox" xsi:type="boolean">false</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">true</item>
+                    <item name="levelsVisibility" xsi:type="number">1</item>
+                    <item name="required" xsi:type="boolean">true</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="listens" xsi:type="array">
+                        <item name="${ $.namespace }.${ $.namespace }:responseData" xsi:type="string">setParsed</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="begin_date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="label" xsi:type="string" translate="true">Begin date</item>
+                    <item name="formElement" xsi:type="string">date</item>
+                    <item name="source" xsi:type="string">page</item>
+                    <item name="dataScope" xsi:type="string">begin_date</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="end_date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="label" xsi:type="string" translate="true">End date</item>
+                    <item name="formElement" xsi:type="string">date</item>
+                    <item name="source" xsi:type="string">page</item>
+                    <item name="dataScope" xsi:type="string">end_date</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <field formElement="imageUploader" name="image">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">offers</item>
+                </item>
+            </argument>
+
+            <settings>
+                <elementTmpl>ui/form/element/uploader/image</elementTmpl>
+                <dataType>string</dataType>
+                <label translate="true">Image</label>
+                <visible>true</visible>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+            </settings>
+
+            <formElements>
+                <imageUploader>
+                    <settings>
+                        <required>false</required>
+                        <uploaderConfig>
+                            <param xsi:type="url" name="url" path="delmeroffer/offer/upload"/>
+                        </uploaderConfig>
+                        <previewTmpl>Magento_Catalog/image-preview</previewTmpl>
+                        <openDialogTitle>Media Gallery</openDialogTitle>
+                        <allowedExtensions>jpg jpeg png</allowedExtensions>
+                        <maxFileSize>10000000</maxFileSize>
+                    </settings>
+                </imageUploader>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

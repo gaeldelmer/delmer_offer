@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.top">
+            <block class="Delmer\Offer\Block\Offer\View"
+                name="banner.view"
+                before="breadcrumbs"
+                template="Delmer_Offer::offer/offer.phtml"
+            />
+        </referenceContainer>
+    </body>
+</page>

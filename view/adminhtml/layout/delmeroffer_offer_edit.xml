@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <uiComponent name="delmer_offer_form"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Delmer\Offer\Block\Adminhtml\Offer\Edit\Tabs" name="delmer_offer_tabs">
+                <block class="Delmer\Offer\Block\Adminhtml\Offer\Edit\Tab\Offer" name="delmer_offer_edit_tab_offer"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">offer</argument>
+                    <argument name="block" xsi:type="string">delmer_offer_edit_tab_offer</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,17 @@
+<?php /** @var $block Delmer\Offer\Block\Offer\View */ ?>
+<?php if (!empty($block->getOffers())) : ?>
+    <?php foreach ($block->getOffers() as $offer) : ?>
+    <div class="delmer-container">
+        <img src="<?= $block->escapeHtml($block->getMediaPath() . $offer->getImage()) ?>"
+             alt="<?=$block->escapeHtml($offer->getImage()); ?>">
+
+        <p><?= $block->escapeHtml($offer->getContent()); ?></p>
+
+        <a href="<?= $block->escapeHtml(($offer->getRedirectLink())); ?>">
+            <button>
+                <?= $block->escapeHtml(strtoupper($offer->getButtonText())); ?>
+            </button>
+        </a>
+    </div>
+    <?php endforeach; ?>
+<?php endif; ?>
